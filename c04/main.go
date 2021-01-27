@@ -26,8 +26,12 @@ func main() {
 		fmt.Printf("value is %d , exists is %t \n", value, exists)
 	}
 	// 如果只想要取得其中一個返回值
+	// 丟棄了 int 的返回值
 	_, exists2 := power("devops")
 	if exists2 == false {
-		fmt.Printf("Error!! \n")
+		fmt.Printf("Error!!  %t \n", exists2)
 	}
+	value2, _ := power("devops")
+	// 丟棄了 bool 的返回值
+	fmt.Printf("Value = %d \n", value2)
 }
