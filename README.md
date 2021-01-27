@@ -1,0 +1,22 @@
+## Reference
+- [Medium部落客整理Go學習資源](https://medium.com/@john.lin/golang-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-582cad359738)
+- [Go 101 ebook](https://gfw.go101.org/article/101.html)
+- [The little go book](https://www.openmymind.net/assets/go/go.pdf)
+- [The little go book 中文版](https://github.com/songleo/the-little-go-book_ZH_CN)
+- [An Intro programming in go ebook](http://www.golang-book.com/books/intro)
+- [Awesome Go github](https://github.com/avelino/awesome-go#web-frameworks)
+
+### c01 
+雖然僅僅展示了簡單的 println , 但這邊需要注意的是 , 在 main package 下運行的程式碼 , 注意到這個 main , 它作為運行一個程式碼的入口點 , 可以的話能嘗試將 package 的 main 改成別的名稱 , 在運行時會得到一個錯誤 , 而將 func 的 main 改成別名稱 , 運行時會得到另一種錯誤
+
+### c02
+go 的包 import , 這邊開始學第一個 "關鍵字" (import) , 通常在使用 go 開發時 , 會引用外部的第三方 package , 因此 import 的功能非常重要 , 在 c02 範例中 , 引用了 go 的內置套件 fmt 與 os , 後面會在學習到如何引用第三方的"外部"套件 , 這邊比較特別的是 , go 的 import 非常嚴格 , 如果 import 了套件在程式碼沒有使用 , 那個編譯就不會 , 這點需要注意
+
+#### tips
+如果想要看 go 的 fmt 相關文件可以透過 https://golang.org/pkg/fmt/#Println , 如果不能上網 , 也可以在本地運行 godoc -http=:6060 , 接著打開 http://localhost:6060
+
+### c03
+從範例來看 go 在聲明變數時 , 它的運作方式為 var power int (先聲明一個變數 power 型別為 int 且賦予值 0) , power = 9000 (宣告 power 重新賦值為 9000) , 範例中也提出第二種簡潔的寫法 `:=` , 這個做法會讓 go 在第一次運行時自動判別變數型別是甚麼 , 並執行賦值的動作 , 需要注意的是 , 這只有在第一次宣告該變數時才能這樣寫 , 之後若要重新賦值仍是使用 `=` , 因此這邊要能清楚了解到使用 `:=` 與 `=` 的差別在哪
+
+#### tips
+在 c03 最後 , 需要特別注意的是 , 變數和 package 的情況類似 , 當你宣告了一個變數 name , 但在程式中並沒有使用它 , 那麼編譯時將會拋出錯誤
