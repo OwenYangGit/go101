@@ -28,3 +28,6 @@ func add(a,b int) int {
 
 }
 ```
+
+### c05
+學習 `struct` , 雖然 go 不像 java / c# / c++ 等語言有 OO 的特性 , 但是在運用 go 的 struct 其實還是有類似 java 在宣告 class 的影子 , 範例定義了一個賽亞人的 struct 
