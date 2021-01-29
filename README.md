@@ -44,3 +44,6 @@ func add(a,b int) int {
 
 ### c09
 `struct` 裡面引用其他 `struct` , 有點像繼承的概念 , 範例展示 go 在這種情況內的做法
+
+### c10
+一個問題 , 在真正實做的時候 , 該選擇使用 value 還是用 pointer to value ? 書中提到多數情況下 , 在不清楚自己要用甚麼的時候 , 優先選用 pointer to value
