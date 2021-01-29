@@ -50,5 +50,8 @@ func add(a,b int) int {
 - 宣告 local variable 賦值
 - struct 的 field
 - 在 function 中返回值的時候
-- function 的參數
+- 傳遞 function 參數的時候
 - 方法的 receiver
+
+#### Tips
+書中提到 , 用 value 傳遞的方式是一種確保 data 不可變的好方法 , 有些時候很好用 , 但有些時候這並不是你所想的那樣 , 而為什麼基本上都用 pointer to value 的做法呢? , 書中說明 , 即使不考慮會去改變 data 的值 , 但還是得考慮到當這個 data 的 struct 非常大的時候 , 要複製這個 struct 遠比複製該 struct 的 address 來的困難許多 , 因此除非很確定這個 struct 非常小 , 不然基本上都是 pointer to value 的使用情況較多
