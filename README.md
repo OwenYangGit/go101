@@ -41,3 +41,6 @@ func add(a,b int) int {
 
 ### c08
 `struct` 裡面可以有任何 type 的宣告 , 可以是整數 , 字串 , 甚至是 `struct` , 範例展示 struct 裡面還有 struct
+
+### c09
+`struct` 裡面引用其他 `struct` , 有點像繼承的概念 , 範例展示 go 在這種情況內的做法
