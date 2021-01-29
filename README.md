@@ -30,4 +30,7 @@ func add(a,b int) int {
 ```
 
 ### c05
-學習 `struct` , 雖然 go 不像 java / c# / c++ 等語言有 OO 的特性 , 但是在運用 go 的 struct 其實還是有類似 java 在宣告 class 的影子 , 範例定義了一個賽亞人的 struct 
+學習 `struct` , 雖然 go 不像 java / c# / c++ 等語言有 OO 的特性 , 但是在運用 go 的 struct 其實還是有類似 java 在宣告 class 的影子 , 範例定義了一個賽亞人的 struct
+
+### c06
+代入指針概念 , 了解變數跟賦值與指針之間的操作 , c06 main 範例展示操作 `struct` 的一些手法 . 
