@@ -38,3 +38,6 @@ func add(a,b int) int {
 
 ### c07
 練習 `struct` 與一個 function 關聯的操作方式
+
+### c08
+`struct` 裡面可以有任何 type 的宣告 , 可以是整數 , 字串 , 甚至是 `struct` , 範例展示 struct 裡面還有 struct
