@@ -34,3 +34,4 @@ func add(a,b int) int {
 
 ### c06
 代入指針概念 , 了解變數跟賦值與指針之間的操作 , c06 範例展示操作 `struct` 的一些操作手法 . 並演示指針相關的概念 , 以及自己一些操作嘗試
+![Pointer](/assets/pointer_in_go.png)
