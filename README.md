@@ -46,7 +46,7 @@ func add(a,b int) int {
 `struct` 裡面引用其他 `struct` , 有點像繼承的概念 , 範例展示 go 在這種情況內的做法
 
 ### c10
-一個問題 , 在真正實做的時候 , 該選擇使用 value 還是用 pointer to value ? 書中提到多數情況下 , 在不清楚自己要用甚麼的時候 , 優先選用 pointer to value  , 而下面情況下 , 都是屬於用 pointer to value
+一個問題 , 在真正實做的時候 , 該選擇使用 value 還是用 pointer to value ? 書中提到多數情況下 , 在不清楚自己要用甚麼的時候 , 優先選用 pointer to value  , 書中提到以下幾種情況 , 直接使用 pointer to value
 - 宣告 local variable 賦值
 - struct 的 field
 - 在 function 中返回值的時候
@@ -55,3 +55,6 @@ func add(a,b int) int {
 
 #### Tips
 書中提到 , 用 value 傳遞的方式是一種確保 data 不可變的好方法 , 有些時候很好用 , 但有些時候這並不是你所想的那樣 , 而為什麼基本上都用 pointer to value 的做法呢? , 書中說明 , 即使不考慮會去改變 data 的值 , 但還是得考慮到當這個 data 的 struct 非常大的時候 , 要複製這個 struct 遠比複製該 struct 的 address 來的困難許多 , 因此除非很確定這個 struct 非常小 , 不然基本上都是 pointer to value 的使用情況較多
+
+### c11
+Array , 和大多數語言一樣 , golang 的 Array 並不能動態的變大變小 , 因此實用性不高(雖然效能好) , 在多數情況下 , 我們會提前處理 data , 這種情況並不會提前知道 array 有多大 , 因此 , 在如果要能動態改變 Array 大小 , 要使用 slice (切片)
