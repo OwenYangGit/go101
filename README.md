@@ -58,3 +58,8 @@ func add(a,b int) int {
 
 ### c11
 Array , 和大多數語言一樣 , golang 的 Array 並不能動態的變大變小 , 因此實用性不高(雖然效能好) , 在多數情況下 , 我們會提前處理 data , 這種情況並不會提前知道 array 有多大 , 因此 , 在如果要能動態改變 Array 大小 , 要使用 slice (切片)
+
+### c12
+在使用 go 中 , 一般較少使用 Array , 多數情況下會使用 slice , [額外參考](https://michaelchen.tech/golang-programming/array-slice/) , 練習 slice 操作 , 以及對於 append 和 cap 的使用進行範例練習
+聊聊 slice 宣告的時候注意的地方
+![About slice len/cap](/assets/len_vs_cap.png)
