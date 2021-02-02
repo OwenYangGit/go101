@@ -133,4 +133,4 @@ package command-line-arguments
     - main
         main.go
 ```
-在平常撰寫 go 中 , 會經常定義類似這樣的 struct , 甚至可能還會命名一個 utilities 的 package 來定義 struct 等等 , 但請注意 , 最重要的原則是在定義這類的 struct 時 , 千萬不要引用在 shopping 的任何 package , 在後面 , 會看到一些例子使用 `interface` 來解決像這類的依賴關係
+在平常撰寫 go 中 , 會經常定義類似這樣的 struct , 甚至可能還會命名一個 utilities 的 package 來定義 struct 等等 , 但請注意 , 最重要的原則是在定義這類的 struct 時 , 千萬不要引用在 shopping 或 shopping 下的任何 package , 在後面 , 會看到一些例子使用 `interface` 來解決像這類的依賴關係
