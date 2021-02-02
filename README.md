@@ -80,7 +80,7 @@ Array , 和大多數語言一樣 , golang 的 Array 並不能動態的變大變�
 書中的 chapter 4 開始 , topic 為 "Code Organization and Interfaces"
 
 ### c15
-在開發大型專案的時候 , 為了便於管理 , 我們往往會切分不同的檔案並進行引用 , 因此必須在 golang 裡面的 packages . 現在開始 , 書中作者希望帶領讀者開始學習如何組織自己的程式碼結構 , 並且學習操作 golang 的 package , 與解釋 package 的概念
+在開發大型專案的時候 , 為了便於管理 , 我們往往會切分不同的檔案並進行引用 , 因此必須認識在 golang 裡面的 package . 現在開始 , 書中作者希望帶領讀者開始學習如何組織自己的程式碼結構 , 並且學習操作 golang 的 package , 與解釋 package 的概念
 
 書中假設 , 如果要開發一個購物系統 , 可能需要從創建一個 shopping 目錄開始 , 並且將這個目錄放到 `$GOPATH/src` 下 (早期 golang 在還沒有套件管理的時候 , 確實是這樣 , 後來有了套件管理的工具 , 已經可以在非 `$GOPATH/src` 的路徑下進行開發了)
 
