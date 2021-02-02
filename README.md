@@ -67,3 +67,6 @@ Array , 和大多數語言一樣 , golang 的 Array 並不能動態的變大變�
 
 ### c13
 聊聊 map , 在其他語言裡 , 被稱為 dict 或是 hashmap , 定義一組 key:value 的 collection . map 跟 slice 一樣 , 可以用 `make` 創建 , 範例中練習 map 的操作方式
+
+### c14
+回到一個問題 , 在 c10 的時候 , 談論到該用 value 還是 pointer to value , 在這裡 slice/map , 在提出討論一次 . 究竟是用 `a := make([]Saiyan, 10)` 還是 `b := make([]*Saiyan, 10)` 呢 , 大部分 developer 認為在 func 中傳遞 b 或返回 b 會比 a 效率來的好 , 然而 , 這裡的傳遞或返回都是一個 slice 的複本 , 這本身就是一個引用 , 因此其實沒有區別 . 真正的區別在於 , 當開始去改變這個 slice 或 map 的值的時候 , 在這點上跟 c10 提到的一樣 , 當這個 "值" 的資料結構大的時候 , pointer to value 會比 value 來的好 , 因此 , 需要探討的是 , 這個 "值" 的定義影響選擇 , 而不是在使不使用 slice 或 map 的時候
