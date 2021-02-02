@@ -92,3 +92,45 @@ Array , 和大多數語言一樣 , golang 的 Array 並不能動態的變大變�
 
 #### Tips
 注意書裡面所撰寫的內容部分有部分已經過時 , 例如該篇的 package 的套件管理方式 , 書中提到的套件管理工具目前已非主流 , 而 golang 官方也在後面發布了自己預設的套件管理工具 go module . 因此該篇將主要放在理解概念 . 過程中展示的 `go mod init shopping` 就是在引入 go module 這個套件管理工具 , 詳細可參考[官網](https://golang.org/doc/tutorial/create-module)
+
+### c16
+在 c15 內容聊到了 package 的 import , c16 將深入聊聊一種情況 "Cyclical Imports" 又稱為循環導入(循環依賴) , 這種情況發生在當 package A 引用了 package B , 且 package B 也"直接或間接"引用了 package A . c16 以 c15 的程式結構展示該情況的發生作為範例
+
+首先將 shopping/db/db.go 中的 `type Item struct` 區段搬到 shopping/pricecheck.go 然後執行 `go run main/main.go` , 你會得到一些錯誤
+```
+db/db.go:9:24: undefined: Item
+db/db.go:10:10: undefined: Item
+```
+接著 , 修改 shopping/db/db.go 將內容改為 , 然後再次執行
+```
+package db
+
+import (
+  "shopping"
+)
+
+func LoadItem(id int) *shopping.Item {
+  return &shopping.Item{
+    Price: 9.001,
+  }
+}
+```
+你會得到
+```
+package command-line-arguments
+        imports shopping
+        imports shopping/db
+        imports shopping: import cycle not allowed
+```
+為了解決這樣的問題 , 我們新定義了一個 package "models" , 而這個 models 裡面宣告了剛剛這個共享的 Item struct , 因此最後的目錄結構會變成這樣
+```
+- shopping
+    pricecheck.go
+    - db
+        db.go
+    - models
+        item.go
+    - main
+        main.go
+```
+在平常撰寫 go 中 , 會經常定義類似這樣的 struct , 甚至可能還會命名一個 utilities 的 package 來定義 struct 等等 , 但請注意 , 最重要的原則是在定義這類的 struct 時 , 千萬不要引用在 shopping 的任何 package , 在後面 , 會看到一些例子使用 `interface` 來解決像這類的依賴關係
