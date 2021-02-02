@@ -160,3 +160,8 @@ type Item struct {
 書中還有提到 package management 和如何導入 third-party 的 package 操作方式 , 這邊不細探 , 未來會有很多機會用到
 
 ### c17
+談談在 golang 裡面的 interface , 在 golang 裡 interface 是一種型別 , 是定義 func 的 collection , 它僅定義 , 不實作 . 相當程度的使用 interface 可以從程式碼實作中解耦一些行為 , :star: 目前在這邊讀 interface 還有些無法理解 interface 的應用 , 之後有機會再回過頭來看一遍
+
+### c18
+
+ 
