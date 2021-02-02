@@ -63,3 +63,6 @@ Array , 和大多數語言一樣 , golang 的 Array 並不能動態的變大變�
 在使用 go 中 , 一般較少使用 Array , 多數情況下會使用 slice , [額外參考](https://michaelchen.tech/golang-programming/array-slice/) , 練習 slice 操作 , 以及對於 append 和 cap 的使用進行範例練習
 聊聊 slice 宣告的時候注意的地方
 ![About slice len/cap](/assets/len_vs_cap.png)
+
+### c13
+聊聊 map , 在其他語言裡 , 被稱為 dict 或是 hashmap , 定義一組 key:value 的 collection . map 跟 slice 一樣 , 可以用 `make` 創建 , 範例中練習 map 的操作方式
