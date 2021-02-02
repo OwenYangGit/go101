@@ -134,3 +134,29 @@ package command-line-arguments
         main.go
 ```
 在平常撰寫 go 中 , 會經常定義類似這樣的 struct , 甚至可能還會命名一個 utilities 的 package 來定義 struct 等等 , 但請注意 , 最重要的原則是在定義這類的 struct 時 , 千萬不要引用在 shopping 或 shopping 下的任何 package , 在後面 , 會看到一些例子使用 `interface` 來解決像這類的依賴關係
+
+### c16-2
+這篇小章節來聊聊針對 c16 用到的觀念卻沒有說明到的地方.
+在 golang 中 , go 用大小寫來定義了 visibility (可見性) 的宣告 , 舉例來說 , 當一個 package A 導入了 package B , 那個 B 中的 func 或 variables 甚至是 struct 等等 , 宣告時的第一個字都需要是大寫 , 否則 package A 是無法調用的 . 看看下面的情況
+```
+package B
+
+// 試試看把 NewItem 換成 newItem , 你會得到一些編譯錯誤
+func NewItem() *Item {
+    ...    
+}
+```
+上面情況同理也適用在 struct 
+```
+// 試試看把 Item 換成 item
+type Item struct {
+    // 試試看把 Price 換成 price , 其他 package 會無法調用
+    Price float64
+}
+```
+因此 , 結論是 , 小寫字母開頭的宣告下 , 只有在同一個 package 可以調用 , 而如果要給不同的 package 調用 , 宣告時的第一個字母必須使用大寫
+
+#### Tips
+書中還有提到 package management 和如何導入 third-party 的 package 操作方式 , 這邊不細探 , 未來會有很多機會用到
+
+### c17
