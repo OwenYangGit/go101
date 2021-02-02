@@ -6,6 +6,8 @@
 - [An Intro programming in go ebook](http://www.golang-book.com/books/intro)
 - [Awesome Go github](https://github.com/avelino/awesome-go#web-frameworks)
 
+## :star: 基礎概念篇
+
 ### c01 
 雖然僅僅展示了簡單的 println , 但這邊需要注意的是 , 在 main package 下運行的程式碼 , 注意到這個 main , 它作為運行一個程式碼的入口點 , 可以的話能嘗試將 package 的 main 改成別的名稱 , 在運行時會得到一個錯誤 , 而將 func 的 main 改成別名稱 , 運行時會得到另一種錯誤
 
@@ -70,3 +72,23 @@ Array , 和大多數語言一樣 , golang 的 Array 並不能動態的變大變�
 
 ### c14
 回到一個問題 , 在 c10 的時候 , 談論到該用 value 還是 pointer to value , 在這裡 slice/map , 在提出討論一次 . 究竟是用 `a := make([]Saiyan, 10)` 還是 `b := make([]*Saiyan, 10)` 呢 , 大部分 developer 認為在 func 中傳遞 b 或返回 b 會比 a 效率來的好 , 然而 , 這裡的傳遞或返回都是一個 slice 的複本 , 這本身就是一個引用 , 因此其實沒有區別 . 真正的區別在於 , 當開始去改變這個 slice 或 map 的值的時候 , 在這點上跟 c10 提到的一樣 , 當這個 "值" 的資料結構大的時候 , pointer to value 會比 value 來的好 , 因此 , 需要探討的是 , 這個 "值" 的定義影響選擇 , 而不是在使不使用 slice 或 map 的時候
+
+#### Tips
+在繼續往下之前 , 書中提到 , 上述的內容適用多數的情況 , 但實際上還有一些非常極端的例子 , 這些例子並不常見 , 但作者希望能夠透過書中打下的基礎讓讀者能夠去思考與應付這些情況
+
+## :star: 進階應用篇
+書中的 chapter 4 開始 , topic 為 "Code Organization and Interfaces"
+
+### c15
+在開發大型專案的時候 , 為了便於管理 , 我們往往會切分不同的檔案並進行引用 , 因此必須在 golang 裡面的 packages . 現在開始 , 書中作者希望帶領讀者開始學習如何組織自己的程式碼結構 , 並且學習操作 golang 的 package , 與解釋 package 的概念
+
+書中假設 , 如果要開發一個購物系統 , 可能需要從創建一個 shopping 目錄開始 , 並且將這個目錄放到 `$GOPATH/src` 下 (早期 golang 在還沒有套件管理的時候 , 確實是這樣 , 後來有了套件管理的工具 , 已經可以在非 `$GOPATH/src` 的路徑下進行開發了)
+
+接著 , 創建這樣一個 shopping 目錄(並在該目錄執行 `go mod init shopping` , 可以試試如果沒有執行的情況下運行程式 `go run` 會不會有問題) , 但其實並不希望將所有檔案都塞進這個資料夾 , 因此 , 在這裡假設開發這套系統中 , 需要撰寫一些操作 database 的邏輯 , 故會在 shopping 目錄下在創建一個名為 db 的目錄 , 然後才開始放入一些像 `db.go` 的文件(裡面撰寫著操作 db 的邏輯 , 範例中並沒有真的去連線 db , 作者僅是為了展示如何組織程式碼)
+
+再來 , 在 shopping 目錄下創建一個 `pricecheck.go` 的檔案(裡面撰寫對於購物系統檢查價格的邏輯) , 如果只是單純要撰寫被引用的 package , 那麼到這裡就是完整的創建一個可以被引用的 package 了 , 但如果要執行一個程式去引用剛剛創建的這些 package , 還需要一個 main func , 因此最後
+
+作者的習慣是在 shopping 目錄下在創建一個 main 目錄 , 然後在 main 目錄下創建一個 `main.go` 檔案 , 至此 , c15 範例練習完成
+
+#### Tips
+注意書裡面所撰寫的內容部分有部分已經過時 , 例如該篇的 package 的套件管理方式 , 書中提到的套件管理工具目前已非主流 , 而 golang 官方也在後面發布了自己預設的套件管理工具 go module . 因此該篇將主要放在理解概念 . 過程中展示的 `go mod init shopping` 就是在引入 go module 這個套件管理工具 , 詳細可參考[官網](https://golang.org/doc/tutorial/create-module)
