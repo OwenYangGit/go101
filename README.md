@@ -197,3 +197,7 @@ func process(count int) error {
 最後補充一點 , go 語言中也有 `panic` 和 `recover` 的 function , 但很少使用
 
 ### c19
+談完了 error handling , 接下來更深入探討發生錯誤的情況 , 常見的一些問題 . c19 主要聊聊 golang 中的 defer . 雖然 golang 有 garbage collector , 但設想一種情形 , 一段運行讀檔操作檔案的程式碼原本運行的好好的 , 但突然某一個環節出了錯誤 , 這個錯誤最終導致這段操作檔案的程式碼 "沒有釋放(沒有呼叫 Close 函數)" 掉 "讀檔" 這個 resource , 在這種情況下 , 資源用完並沒有被回收 . 為了避免這種情況發生 , golang 提供了 `defer` 這個關鍵字 , 它的原理是 , 會在 "函數返回之前執行 , 並且以 LIFO 後進先出的方式執行" , 接著讓我們透過 c19 展示 `defer` 的使用方式
+
+#### Tips
+c19 的 defer.go 展示 defer 的工作原理 , 運行後可以查看出差異在哪
