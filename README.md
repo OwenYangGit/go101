@@ -173,3 +173,27 @@ type Item struct {
 
 ### c18
 OK , 接下來開始聊聊 error handling (錯誤處理) . Go 在進行錯誤處理通常傾向使用 "返回值(return value)" 進行處理 , 並非用 "例外處理(exceptions)" 範例中展示 `strconv.Atoi` 功能為 將 string 轉換成 integer 型別的 function 的錯誤處理案例
+
+#### Tips
+golang 也支持自定義 error 的 interface , 但是必須要實作 golang 內建的 `error` interface
+```
+type error interface {
+    Error() string
+}
+```
+在普遍的情況下 , 可以自己定義 error 透過 import "error" 的 package , 並使用它內部的 New function
+```
+import (
+  "errors"
+)
+func process(count int) error {
+  if count < 1 {
+    return errors.New("Invalid count")
+  }
+  ...
+  return nil
+}
+```
+最後補充一點 , go 語言中也有 `panic` 和 `recover` 的 function , 但很少使用
+
+### c19
