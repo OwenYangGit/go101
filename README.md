@@ -172,4 +172,4 @@ type Item struct {
 這邊先以官方的一個 interface 練習來感受一下 interface 的操作和用法 [官方範例](https://gobyexample.com/interfaces) 
 
 ### c18
-OK , 接下來開始聊聊 error handling (錯誤處理) . 
+OK , 接下來開始聊聊 error handling (錯誤處理) . Go 在進行錯誤處理通常傾向使用 "返回值(return value)" 進行處理 , 並非用 "例外處理(exceptions)" 範例中展示 `strconv.Atoi` 功能為 將 string 轉換成 integer 型別的 function 的錯誤處理案例
