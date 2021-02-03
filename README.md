@@ -31,6 +31,13 @@ func add(a,b int) int {
 }
 ```
 
+#### Tips
+:star: 關於 golang 中的 func 語法 
+:star: go 如何定義 method : A method is a function with a special receiver argument.
+```
+func (reciever:繼承的方法) funcName(參數)(回傳值型態) { ... }
+```
+
 ### c05
 學習 `struct` , 雖然 go 不像 java / c# / c++ 等語言有 OO 的特性 , 但是在運用 go 的 struct 其實還是有類似 java 在宣告 class 的影子 , 範例定義了一個賽亞人的 struct
 ![struct definition](/assets/struct_def.png)
@@ -162,6 +169,7 @@ type Item struct {
 ### c17
 談談在 golang 裡面的 interface , 在 golang 裡 interface 是一種型別 , 是定義 func 的 collection , 它僅定義 , 不實作 . 相當程度的使用 interface 可以從程式碼實作中解耦一些行為 , :star: 目前在這邊讀 interface 還有些無法理解 interface 的應用 , 之後有機會再回過頭來看一遍
 
-### c18
+這邊先以官方的一個 interface 練習來感受一下 interface 的操作和用法 [官方範例](https://gobyexample.com/interfaces) 
 
- 
+### c18
+OK , 接下來開始聊聊 error handling (錯誤處理) . 
