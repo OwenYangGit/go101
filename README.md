@@ -201,3 +201,13 @@ func process(count int) error {
 
 #### Tips
 c19 的 defer.go 展示 defer 的工作原理 , 運行後可以查看出差異在哪
+
+### c20
+空 interface 和 型別轉換 (conversions) , 這章先跳過 , 這章有點難理解 ~"~
+
+### c21
+String 與 Byte Array 是有著密切關係的 , 在 c21 範例中 , 可以看出 string 和 byte array 之間能夠輕易在之間做轉換 . 而實際上 , 其他型別的轉換原理也是類似這樣的做法 , 像是 int64() 或 int32() 這類 function .
+而在使用 byte 和 string 的時候 , 需要注意的是 , 我們經常會使用到 string 或 byte 型別的操作 , 但實際上我們創建的都是 data 的複本(copy) , :star: 這是因為 string 和 byte 的 "immutable 不可變性"
+
+c21 範例中也說明 , 當遇到 string 中含有 unicode 中 runes 這種特殊字元時 , 在計算該 string 的長度可能不會得到正確的答案 , 如同 c21 範例所示 . 而如果在使用 for 迴圈 iterat 一個 string 的時候 , 返回的結果也不是一般所想的那樣  
+
