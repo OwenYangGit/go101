@@ -213,3 +213,6 @@ c21 範例中也說明 , 當遇到 string 中含有 unicode 中 runes 這種特�
 
 ### c22
 使用 type func , func 是第一種 class 型別 , 這種型別可以用在任何地方 , 例如 struct , 適當的運用 type func 可以有效的降低程式碼的耦合度(解耦一些程式碼邏輯)
+
+## 併發
+:star: 暫時不讀 , 之後再回來讀
