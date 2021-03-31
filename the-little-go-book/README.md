@@ -6,6 +6,7 @@
 - [An Intro programming in go ebook](http://www.golang-book.com/books/intro)
 - [Awesome Go github](https://github.com/avelino/awesome-go#web-frameworks)
 - [tutorial edge](https://tutorialedge.net/course/golang/)
+- [tutorial edge github practices](https://github.com/TutorialEdge/Go#beginners-tutorials)
 
 ## :star: 基礎概念篇
 
