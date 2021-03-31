@@ -5,6 +5,7 @@
 - [The little go book 中文版](https://github.com/songleo/the-little-go-book_ZH_CN)
 - [An Intro programming in go ebook](http://www.golang-book.com/books/intro)
 - [Awesome Go github](https://github.com/avelino/awesome-go#web-frameworks)
+- [tutorial edge](https://tutorialedge.net/golang/go-basic-types-tutorial/)
 
 ## :star: 基礎概念篇
 
